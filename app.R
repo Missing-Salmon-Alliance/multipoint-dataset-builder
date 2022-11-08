@@ -36,7 +36,7 @@ server <- function(input, output, session) {
             leaflet::addProviderTiles(leaflet::providers$Esri.OceanBasemap, options = leaflet::providerTileOptions(minZoom = 0, maxZoom =10)) %>%
             leaflet::addProviderTiles(leaflet::providers$OpenStreetMap, options = leaflet::providerTileOptions(minZoom = 11, maxZoom = 19)) %>%
             #leaflet::setView(0,55,8) %>%
-            leaflet::addAwesomeMarkers(data = sf::st_as_sf(data(),wkt = 'geometry',crs = 4326),group = 'data')
+            leaflet::addCircleMarkers(data = sf::st_as_sf(data(),wkt = 'geometry',crs = 4326),group = 'data')
     })
     
     output$table <- DT::renderDataTable({
