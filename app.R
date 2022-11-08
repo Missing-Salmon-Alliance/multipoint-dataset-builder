@@ -35,7 +35,6 @@ server <- function(input, output, session) {
         leaflet::leaflet(options = leaflet::leafletOptions(minZoom = 0,maxZoom = 19)) %>% # maxZoom set so that user can always see their rectangle in context of a coastline
             leaflet::addProviderTiles(leaflet::providers$Esri.OceanBasemap, options = leaflet::providerTileOptions(minZoom = 0, maxZoom =10)) %>%
             leaflet::addProviderTiles(leaflet::providers$OpenStreetMap, options = leaflet::providerTileOptions(minZoom = 11, maxZoom = 19)) %>%
-            #leaflet::setView(0,55,8) %>%
             leaflet::addCircleMarkers(data = sf::st_as_sf(data(),wkt = 'geometry',crs = 4326),group = 'data')
     })
     
